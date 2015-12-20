@@ -1,3 +1,4 @@
+'use strict';
 const express      = require('express');
 const path         = require('path');
 const favicon      = require('serve-favicon');
@@ -19,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/',      require('./routes/index'));
+app.use('/', require('./routes/index'));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
