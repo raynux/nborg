@@ -1,0 +1,5 @@
+logs
+*.log
+*.swp
+node_modules
+public/javascripts/bundle.js
