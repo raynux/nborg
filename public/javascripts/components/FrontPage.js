@@ -1,23 +1,18 @@
 'use strict';
 import React from 'react';
+import Reflux from 'reflux';
 import Webcam from 'react-webcam';
-import {Button, Panel, Grid, Row, Col} from 'react-bootstrap';
+import {Button, Grid, Row, Col} from 'react-bootstrap';
+import AnalysisAction from '../actions/AnalysisAction';
+import AnalysisStore from '../stores/AnalysisStore';
 
-import request from 'superagent';
-require('superagent-as-promised')(request);
-
+import ResultList from './ResultList';
 
 export default React.createClass({
+  mixins: [Reflux.connect(AnalysisStore, 'analysis')],
+
   onCapture() {
-    request.post('/api/analyze')
-    .send({
-      image: this.refs.webcam.getScreenshot(),
-    })
-    .then((res) => {
-      console.log(res.body);
-    }).catch((err) => {
-      console.log(err);
-    });
+    AnalysisAction.submit(this.refs.webcam.getScreenshot());
   },
 
   render() {
@@ -28,12 +23,12 @@ export default React.createClass({
             <Webcam width={480} height={360} audio={false}
                     ref='webcam' screenshotFormat='image/jpeg'/>
           </Col>
-          <Col xs={12} md={6}>
-            <Panel>xxx</Panel>
-          </Col>
+          <Col xs={12} md={6}><ResultList /></Col>
         </Row>
         <Row>
-          <Button bsStyle="primary" onClick={this.onCapture}>Capture</Button>
+          <Col xs={12} md={6}>
+            <Button bsStyle="primary" onClick={this.onCapture}>Capture</Button>
+          </Col>
         </Row>
       </Grid>
     )
