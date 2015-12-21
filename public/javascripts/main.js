@@ -5,6 +5,6 @@ import ReactDom from 'react-dom';
 import FrontPage from './components/FrontPage';
 
 ReactDom.render(
-<FrontPage />,
+  <FrontPage />,
   document.getElementById('contents')
 );
