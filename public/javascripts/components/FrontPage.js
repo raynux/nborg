@@ -2,10 +2,11 @@
 import React from 'react';
 import Reflux from 'reflux';
 import Webcam from 'react-webcam';
-import {Button, Grid, Row, Col} from 'react-bootstrap';
+import {Button, Panel, Grid, Row, Col} from 'react-bootstrap';
 import AnalysisAction from '../actions/AnalysisAction';
 import AnalysisStore from '../stores/AnalysisStore';
 
+import Header from './Header';
 import ResultList from './ResultList';
 
 export default React.createClass({
@@ -17,20 +18,32 @@ export default React.createClass({
 
   render() {
     return (
-      <Grid>
-        <Row>
-          <Col xs={12} md={6}>
-            <Webcam width={480} height={360} audio={false}
-                    ref='webcam' screenshotFormat='image/jpeg'/>
-          </Col>
-          <Col xs={12} md={6}><ResultList /></Col>
-        </Row>
-        <Row>
-          <Col xs={12} md={6}>
-            <Button bsStyle="primary" onClick={this.onCapture}>Capture</Button>
-          </Col>
-        </Row>
-      </Grid>
+      <div>
+        <Header />
+
+        <Grid style={{marginTop: 40}}>
+          <Row>
+            <Col xs={12} md={4}>
+              <Panel header="Input Camera">
+                <Webcam width={320} height={240} audio={false} ref='webcam' screenshotFormat='image/jpeg'/>
+                <div style={{marginTop: 10}}>
+                  <Button bsStyle="primary" onClick={this.onCapture}>Capture</Button>
+                </div>
+              </Panel>
+            </Col>
+            <Col xs={12} md={4}>
+              <Panel header="Result">
+                <ResultList />
+              </Panel>
+            </Col>
+            <Col xs={12} md={4}>
+              <Panel header="Result">
+                <ResultList />
+              </Panel>
+            </Col>
+          </Row>
+        </Grid>
+      </div>
     )
   }
 })
