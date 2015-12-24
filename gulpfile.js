@@ -11,6 +11,27 @@ gulp.task('server', () => {
   })
 });
 
+gulp.task('build', () => {
+  return gulp.src('public/javascripts/main.js')
+    .pipe(plumber())
+    .pipe(webpack({
+      watch: false,
+      output: { filename: 'bundle.js' },
+      module: {
+        loaders: [{
+          loader: 'babel',
+          exclude: /node_modules/,
+          test: /\.js[x]?$/,
+          query: {
+            cacheDirectory: false,
+            presets: ['react', 'es2015']
+          }
+        }],
+      }
+    }))
+    .pipe(gulp.dest('public/javascripts/'))
+});
+
 gulp.task('webpack', () => {
   return gulp.src('public/javascripts/main.js')
     .pipe(plumber())
