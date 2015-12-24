@@ -49,8 +49,8 @@ export default React.createClass({
     return _.chain(this.state.analysis)
       .map((e) => { return e.result })
       .flatten()
-      .map((r) => { return (r.faceAttributes.age) })
-      .map((age) => {
+      .map((r) => {
+        const age = r.faceAttributes.age;
         if(age < 20)      { return 'Under 20' }
         else if(age < 30) { return '20-29' }
         else if(age < 40) { return '30-39' }
