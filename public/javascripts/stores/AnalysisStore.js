@@ -9,7 +9,8 @@ require('superagent-as-promised')(request);
 export default Reflux.createStore({
   listenables: [AnalysisAction],
 
-  data: [],
+  // data: [],
+  data: require('../highcharts/dummyData'),
 
   submit(image) {
     request.post('/api/analyze')
@@ -21,7 +22,7 @@ export default Reflux.createStore({
         timestamp: new Date(),
         result: res.body
       });
-      console.log(this.data);
+      console.debug(JSON.stringify(this.data));
       this.trigger(this.data);
     }).catch((err) => {
       console.log(err);

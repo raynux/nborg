@@ -9,6 +9,7 @@ import AnalysisStore from '../stores/AnalysisStore';
 import Header from './Header';
 import ResultList from './ResultList';
 import ScatterPlot from './ScatterPlot';
+import TotalDonuts from './TotalDonuts';
 
 export default React.createClass({
   mixins: [Reflux.connect(AnalysisStore, 'analysis')],
@@ -33,14 +34,15 @@ export default React.createClass({
               </Panel>
             </Col>
             <Col xs={12} md={4}>
-              <Panel header="Result">
-                <ResultList />
-              </Panel>
+              <Panel header="Donuts"><TotalDonuts /></Panel>
             </Col>
             <Col xs={12} md={4}>
-              <Panel header="Scatter Plot">
-                <ScatterPlot />
-              </Panel>
+              <Panel header="Scatter Plot"><ScatterPlot /></Panel>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={12}>
+              <Panel header="Result"><ResultList /></Panel>
             </Col>
           </Row>
         </Grid>
