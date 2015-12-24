@@ -14,3 +14,5 @@ npm install
 export OXFORD_FACE_APIKEY='XXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 gulp
 ```
+
+then go `http://localhost:3000`
