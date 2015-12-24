@@ -22,7 +22,7 @@ export default Reflux.createStore({
         timestamp: new Date(),
         result: res.body
       });
-      console.debug(JSON.stringify(this.data));
+      // console.debug(JSON.stringify(this.data));
       this.trigger(this.data);
     }).catch((err) => {
       console.log(err);
