@@ -72,7 +72,6 @@ export default React.createClass({
 
   render() {
     chartConfig.series[0].data = this.convertToSeriesData();
-    console.debug(this.convertToSeriesData());
 
     return (
       <ReactHighCharts config={chartConfig} />
