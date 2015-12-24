@@ -1,9 +1,9 @@
 'use strict';
-const stream       = require('stream');
-const router       = require('express').Router();
-const oxford       = require('project-oxford');
+const stream = require('stream');
+const router = require('express').Router();
+const oxford = require('project-oxford');
 
-const oxfordClient = new oxford.Client(process.env.OXFORM_FACE_APIKEY);
+const oxfordClient = new oxford.Client(process.env.OXFORD_FACE_APIKEY);
 
 router.get('/', (req, res, next) => {
   res.send('I am /api');
