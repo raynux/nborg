@@ -11,7 +11,7 @@ const PictureDetail = React.createClass({
   render() {
     const f = this.props.face.faceAttributes;
     return (
-      <div>{f.gender} {f.age} years old ({f.smile})</div>
+      <span>[ {f.gender}, {f.age} ] </span>
     )
   }
 });
@@ -19,10 +19,8 @@ const PictureDetail = React.createClass({
 const PictureSummary = React.createClass({
   render() {
     return (
-      <Panel>
-        <strong>
-          {moment(this.props.item.timestamp).format('YYYY-MM-DD HH:mm:SS')}
-        </strong> : {this.props.item.result.length} people
+      <div style={{color: '#aaa'}}>
+        <span> {moment(this.props.item.timestamp).format('YYYY-MM-DD HH:mm:SS')} - {this.props.item.result.length} : </span>
 
         {_(this.props.item.result).map((r, i) => {
           return (
@@ -30,7 +28,7 @@ const PictureSummary = React.createClass({
                            face={r} />
           )
         }).value()}
-      </Panel>
+      </div>
     )
   }
 });
@@ -41,7 +39,7 @@ export default React.createClass({
   render() {
     return (
       <div>
-        {_(this.state.analysis).map((e) => {
+        {_(this.state.analysis).reverse().map((e) => {
           return (<PictureSummary key={e.id} item={e} />)
         }).value()}
       </div>

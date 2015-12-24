@@ -64,7 +64,6 @@ export default React.createClass({
       }, {})
       .pairs()  // convert to [[category, count], [category, count], ...]
       .map((stat) => {
-
         return {name: stat[0], y: stat[1], color: COLOR_TABLE[stat[0]]}
       })
       .value()
