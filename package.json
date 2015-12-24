@@ -15,6 +15,7 @@
     "lodash": "^3.10.1",
     "moment": "^2.10.6",
     "morgan": "~1.6.1",
+    "numeral": "^1.5.3",
     "project-oxford": "^1.1.0",
     "react": "^0.14.3",
     "react-bootstrap": "^0.28.1",

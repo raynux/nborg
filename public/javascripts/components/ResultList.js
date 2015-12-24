@@ -1,6 +1,7 @@
 'use strict';
 import _ from 'lodash';
 import moment from 'moment';
+import numeral from 'numeral';
 import React from 'react';
 import Reflux from 'reflux';
 import {Panel} from 'react-bootstrap';
@@ -10,8 +11,11 @@ import AnalysisStore from '../stores/AnalysisStore';
 const PictureDetail = React.createClass({
   render() {
     const f = this.props.face.faceAttributes;
+    const style = {color: null}
+    style.color = _.isEqual(f.gender, 'female') ? '#ff69b4' : '#4169e1';
+
     return (
-      <span>[ {f.gender}, {f.age} ] </span>
+      <span style={style}>{numeral(f.age).format('0.0')} </span>
     )
   }
 });
