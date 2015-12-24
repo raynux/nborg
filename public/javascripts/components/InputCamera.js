@@ -31,6 +31,10 @@ export default React.createClass({
     clearInterval(this.state.repeating)
   },
 
+  onDummy() {
+    AnalysisAction.setDummyData();
+  },
+
   render() {
     return (
       <div>
@@ -45,6 +49,7 @@ export default React.createClass({
               return <Button bsStyle="success" onClick={this.onCaptureRepeat}>Every {REPEAT_INTERVAL / 1000} sec</Button>
             }
           })()}
+          <Button bsStyle="link" onClick={this.onDummy}>Dummy</Button>
         </ButtonToolbar>
       </div>
     )
