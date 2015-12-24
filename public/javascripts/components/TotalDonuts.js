@@ -25,12 +25,7 @@ const chartConfig = {
   },
   series: [
     {
-      name: 'Age',
-      size: '60%',
-      data: []
-    },
-    {
-      name: 'Gender',
+      name: 'Count',
       size: '60%',
       data: []
     }
