@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/analyze', (req, res, next) => {
-  // Creating a stream for posted based64-encoded iamge
+  // Creating a stream for posted based64-encoded image
   const data = req.body.image.split(',')[1];  // removing 'data:image/jpeg;base64,'
   const decodedImage = new Buffer(data, 'base64');
   const rs = new stream.Readable();
