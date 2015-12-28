@@ -6,7 +6,7 @@ Scan faces on your camera, plot demographics using [Oxford Project Face API](htt
 
 ## Setup and Run
 
-requires nodejs v4 or later, and an Face API key for the [Oxford Project](https://www.projectoxford.ai/face)
+requires nodejs v4 or later, and a Face API key for the [Oxford Project](https://www.projectoxford.ai/face)
 
 ```shell
 npm install -g gulp
